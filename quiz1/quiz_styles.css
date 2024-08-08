@@ -1,0 +1,402 @@
+/* Regular */
+@font-face {
+    font-family: 'Rubik';
+    src: url('fonts/Rubik-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Italic */
+@font-face {
+    font-family: 'Rubik-Italic';
+    src: url('fonts/Rubik-Italic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+}
+
+/* Light */
+@font-face {
+    font-family: 'Rubik Light';
+    src: url('fonts/Rubik-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+/* Medium */
+@font-face {
+    font-family: 'Rubik Medium';
+    src: url('fonts/Rubik-Medium.ttf') format('truetype');
+    font-weight: 500; /* Change the font-weight to 500 for medium */
+    font-style: normal;
+}
+
+/* General styling */
+body {
+    font-family: 'Rubik', 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif; /* Font stack with fallback fonts */
+    background: linear-gradient(to bottom, #f5f5f5, #f5f5f5, #f5f5f5); /* Gradient background */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 18pt;
+    height: 100vh; /* Ensure the body extends to the full height of the viewport */
+}
+
+h1 {
+    font-family: 'Rubik', 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif; /* Apply the same font to headings for consistency */
+    text-align: center;
+    margin-top: 10px; /* Reduced top margin to move container higher */
+}
+
+/* Header styling */
+header {
+    display: flex;
+    justify-content: center; /* Align items horizontally at the center */
+    align-items: center;
+    flex-wrap: wrap; /* Allow items to wrap to the next line if needed */
+    padding: 16px; /* Add padding to the header to create space around buttons */
+    margin-bottom: 20px; /* Add margin to create space below the header */
+}
+
+/* Header button styling */
+.home-btn,
+.toggle-btn {
+    padding: 10px 18px; /* Increase padding for consistency and space */
+    font-size: 12pt; /* Ensure consistent font size */
+    background-color: #01C2FF; /* Default button color */
+    color: #fff;
+    border: none;
+    border-radius: 20px; /* Rounded border */
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    box-shadow: none;
+    margin: 5px; /* Increase margin for spacing between buttons */
+    display: flex; /* Use flexbox */
+    align-items: center; /* Center-align items vertically */
+    justify-content: center; /* Center-align items horizontally */
+    vertical-align: middle; /* Vertically align text */
+    background-image: linear-gradient(to bottom, #FDC830, #F37335); /* Orange color gradient with darker bottom */
+}
+
+/* Styling for the toggle buttons */
+.toggle-btn {
+    gap: 3px; /* Adjust the gap between the checkbox and label */
+    font-size: 12pt; /* Ensure consistent font size */
+    color: #fff; /* Set label color to white */
+}
+
+/* Styling for the toggle button labels */
+#shuffle-checkbox,
+#toggle-chinese,
+#toggle-english,
+#toggle-roman {
+    font-size: 12pt; /* Ensure consistent font size */
+    color: #fff; /* Set label color to white */
+    white-space: nowrap; /* Prevent wrapping */
+}
+
+/* CSS for "Back to Main Page" link */
+/* HOME button */
+.home-btn {
+    padding: 10px 15px; /* Increase padding for horizontal spacing */
+}
+
+/* + and - buttons */
+#increase-font-size,
+#decrease-font-size {
+    width: 40px; /* Adjust width */
+    height: 30px;
+    background-color: #01C2FF; /* Default button color */
+    color: #fff;
+    border: none;
+    border-radius: 20px; /* Rounded border */
+    cursor: pointer;
+    transition: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12pt; /* Ensure consistent font size */
+    margin: 5px; /* Increase margin for spacing between buttons */
+}
+
+/* Container styling */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px 20px; /* Increase padding on the left and right sides */
+    text-align: center;
+    background-color: #fff;
+    border-radius: 20px; /* Rounded corners on all sides */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#korean_question, #roman_question, #english_question, #question_cn {
+    margin-top: 20px; /* Reduce top margin */
+    margin-bottom: 20px; /* Reduce bottom margin */
+    font-size: 16pt; /* Adjust font size for mobile */
+}
+
+#options {
+    margin-top: 20px; /* Increase top margin */
+    margin-bottom: 20px; /* Increase bottom margin */
+}
+
+#quiz-title {
+    font-size: 12pt; /* Adjust the font size to your desired size */
+}
+
+/* Space between option buttons MCQs and control buttons (prev/next/restart) */
+#control-buttons {
+    margin-top: 20px; /* Adjust as needed */
+    text-align: center; /* Center-align the control buttons */
+    display: flex; /* Use flexbox to arrange buttons in a row */
+    justify-content: center; /* Center-align the buttons */
+    gap: 10px; /* Add gap between buttons */
+}
+
+/* Buttons */
+button {
+    padding: 12px 24px;
+    font-size: 16pt;
+    background-color: #FF7F00; /* Default button color - orange (prev/next/restart) */
+    color: #fff;
+    border: none;
+    border-radius: 20px; /* Rounded border */
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    box-shadow: none;
+    margin-bottom: 10px; /* Add bottom margin for wrapping */
+}
+
+/* Apply darker blue color when control buttons are pressed */
+#control-buttons button:active {
+    background-color: #D26900; /* Darker blue color when control buttons are pressed */
+}
+
+/* Button Scale/Zoom Effect */
+button:active {
+    transform: scale(0.95); /* Scale the button down slightly when pressed */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Add button shadow when pressed */
+}
+
+/* Styling for the option buttons MCQs */
+.option-btn {
+    background-color: #dcdcdc;
+    color: #444;
+    font-size: 14pt;
+    width: 100%; /* Set the option buttons to be as long as the container */
+    margin-bottom: 8px; /* Add space between option buttons */
+    border-radius: 20px; /* Rounded border */
+    font-family: 'Rubik Medium', 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif; /* Font stack with fallback fonts */
+}
+
+/* Styling for the selected option button */
+.option-selected {
+    background-color: #444;
+    color: #fff;
+}
+
+/* Styling for correct answer */
+.correct {
+    background-image: linear-gradient(to bottom, #99E6A1, #66C0C6); /* Linear gradient from lighter to darker green */
+    color: white; /* Set font color to white for correct answers */
+}
+
+/* Styling for wrong answer */
+.wrong {
+    background-image: linear-gradient(to bottom, #FF9999, #F5596B); /* Linear gradient from lighter to darker red */
+    color: white; /* Set font color to white for wrong answers */
+}
+
+/* Styling for correct explanation */
+.correct-explanation {
+    color: #66C0C6; /* Use the same color as the correct option button background */
+}
+
+/* Styling for incorrect explanation */
+.wrong-explanation {
+    color: #F5596B; /* Use the same color as the wrong option button background */
+}
+
+/* Rounded progress bar */
+.progress-container {
+    width: 100%;
+    background-color: #ddd;
+    border-radius: 10px; /* Adjusted border-radius for rounded progress bar */
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+
+.progress-bar {
+    width: 0%;
+    height: 20px;
+    background-color: #F9B234; /* Default button color */
+    background-image: linear-gradient(to bottom, #FFD700, #F9B234); /* Linear gradients */
+    background-color: hsl(38, 94%, 59%); /* Adjust the hue, saturation, and lightness as needed */
+    border-radius: 10px; /* Add this line to make the progress bar rounded */
+    transition: width 0.3s ease;
+    overflow: hidden; /* Add this line to prevent overflow of rounded corners */
+}
+
+/* CSS for buttons to adjust font size */
+/* Buttons for controlling quiz */
+#font-size-controls {
+    display: flex;
+    align-items: center;
+    margin-left: 2px; /* Adjust margin for spacing */
+}
+
+/* CSS for the header container */
+#header-container {
+    display: flex; /* Use flexbox to arrange items */
+    align-items: center; /* Center-align items vertically */
+    margin-top: 8px; /* Add space from the top of the browser */
+    gap: 8px; /* Increase the gap between elements */
+}
+
+/* Style for all buttons within the header container */
+#header-container button {
+    height: 40px; /* Set the same height for all buttons */
+    display: flex; /* Use flexbox */
+    align-items: center; /* Center-align items vertically */
+    justify-content: center; /* Center-align items horizontally */
+    vertical-align: middle; /* Vertically align text */
+    font-family: 'Rubik', 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif; /* Font stack with fallback fonts */
+    background-image: linear-gradient(to bottom, #FDC830, #F37335); /* Orange color gradient with darker bottom */
+    margin: 0 5px; /* Adjust margin for closer spacing between buttons */
+}
+
+/* Apply linear gradient background to specific buttons */
+#control-buttons button {
+    margin-top: 14px; /* Adjust margin for spacing between buttons */
+    font-family: 'Rubik', 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif; /* Font stack with fallback fonts */
+    background-image: linear-gradient(to bottom, #FDC830, #F37335); /* Orange color gradient with darker bottom */
+}
+
+/* MOBILE */
+
+/* Default styles for quiz interface */
+.quiz-interface {
+    /* Set default height */
+    height: 100%;
+}
+
+/* Media query for screens smaller than 640px in height (standard mobile phone size) */
+@media only screen and (max-height: 640px) {
+    /* Adjust height of quiz interface elements to fit within available space */
+    .quiz-interface {
+        height: 80%; /* Adjust percentage based on remaining space */
+    }
+
+    /* Additional adjustments for smaller screens if needed */
+}
+
+/* MOBILE */
+
+/* Styles for screens smaller than 640px in height */
+@media only screen and (max-height: 640px) {
+    /* Adjust styles for smaller screens */
+    /* For example, you can modify font sizes, margins, padding, etc. to fit smaller screens */
+    .container {
+        max-height: 80vh; /* Adjust percentage based on remaining space */
+    }
+}
+
+/* Styles for screens between 601px and 1024px (typical tablets) */
+@media only screen and (min-width: 601px) and (max-width: 1024px) {
+    /* Adjust styles for tablets */
+    /* You may need to make more significant layout changes for tablets */
+    .quiz-interface {
+        height: 90%; /* Adjust percentage based on remaining space */
+    }
+
+    /* Additional adjustments for tablets if needed */
+}
+
+/* For iPad screens in portrait mode (width between 768px and 1024px) */
+@media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+    .container {
+        max-width: 80%; /* Adjust this percentage to control the width */
+        margin: 0 auto;
+    }
+}
+
+/* For iPad screens in landscape mode (width between 768px and 1024px) */
+@media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+    .container {
+        max-width: 95%; /* Adjust this percentage to control the width */
+        margin: 0 auto;
+    }
+}
+
+/* Styles for screens larger than 1024px (typical laptops and desktops) */
+@media only screen and (min-width: 1025px) {
+    /* Adjust styles for larger screens */
+    /* You can optimize the layout for larger screens and add more content if needed */
+    .quiz-interface {
+        height: 100%; /* Adjust percentage based on remaining space */
+    }
+
+    /* Set container width to 60% for laptops and desktops */
+    .container {
+        width: 60%;
+    }
+
+    /* Additional adjustments for larger screens if needed */
+}
+
+/* Adjust header button styles for smaller screens */
+@media (max-width: 600px) {
+    #header-container {
+        display: flex;
+        flex-wrap: nowrap; /* Prevent items from wrapping */
+        justify-content: space-between; /* Distribute items evenly */
+        margin-top: 3px; /* Add top margin for the header */
+        margin-bottom: 1px; /* Add bottom margin for the header */
+    }
+
+    #header-container button,
+    .toggle-btn,
+    #font-size-controls {
+        margin: 1px; /* Reduce margin for spacing between buttons */
+        padding: 3px 9px; /* Reduce padding for smaller buttons */
+        font-size: 12pt; /* Reduce font size */
+    }
+
+    /* Adjust font size controls */
+    #font-size-controls {
+        display: flex;
+        align-items: center;
+        margin-left: 2px; /* Reduce margin for spacing */
+    }
+
+    #increase-font-size,
+    #decrease-font-size {
+        width: 40px; /* Increase width */
+        height: 25px; /* Reduce height */
+        font-size: 16pt; /* Ensure consistent font size */
+    }
+
+    #control-buttons {
+        flex-direction: row; /* Ensure buttons are in a row */
+        justify-content: center; /* Center-align the buttons */
+        margin-top: 15px; /* Adjust as needed */
+        gap: 5px; /* Add gap between buttons */
+    }
+
+    #control-buttons button {
+        flex: 1; /* Allow buttons to grow to fit the space */
+        margin: 2px; /* Reduce margin for spacing between buttons */
+        padding: 10px 20px; /* Adjust padding for larger buttons */
+        font-size: 14pt; /* Adjust font size */
+    }
+
+    /* Reduce question font size for mobile */
+    #korean_question, #roman_question, #english_question, #question_cn {
+        font-size: 16pt; /* Reduced font size */
+    }
+
+    /* Mobile-specific margin-top for h1 */
+    h1 {
+        margin-top: 2px; /* Adjust this value to your needs */
+    }
+}

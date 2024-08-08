@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>⭐ Big Bright Bean ⭐</title>
+    <link rel="stylesheet" href="quiz_styles.css">
+</head>
+<body>
+    <header>
+        <div id="header-container">
+            <button class="home-btn" onclick="goToHomePage()" title="Go to Home Page">HOME</button>
+
+            <!-- Button for turning on Roman translations -->
+            <button class="toggle-btn" onclick="toggleRomanTranslations()" title="Turn on Romanization">
+                <input type="checkbox" id="toggleRoman">
+                <label for="toggleRoman" id="toggle-roman">KR</label>
+            </button>
+            
+            <!-- Button for turning on English translations -->
+            <button class="toggle-btn" onclick="toggleEnglishTranslations()" title="Turn on English Translations">
+                <input type="checkbox" id="toggleEnglish">
+                <label for="toggleEnglish" id="toggle-english">EN</label>
+            </button>
+
+            <!-- Button for turning on Chinese translations -->
+            <button class="toggle-btn" onclick="toggleChineseTranslations()" title="Turn on Chinese Translations">
+                <input type="checkbox" id="toggleChinese">
+                <label for="toggleChinese" id="toggle-chinese">中文</label>
+            </button>
+
+
+            <!-- Button for toggling question shuffling -->
+            <button class="toggle-btn" onclick="toggleQuestionShuffle()" title="Shuffle Questions">
+                <input type="checkbox" id="shuffleQuestions">
+                <label for="shuffleQuestions" id="shuffle-checkbox">🔀</label>
+            </button>
+
+            <div id="font-size-controls">
+                <button id="increase-font-size" title="Increase font size">+</button>
+                <button id="decrease-font-size" title="Decrease font size">-</button>
+            </div>
+        </div>
+    </header>
+
+    <h1 id="quiz-title"></h1>
+    <div class="container">
+        <div class="progress-container">
+            <div class="progress-bar" id="progress-bar"></div>
+        </div>
+        <div id="korean_question"></div>
+        <div id="roman_question"></div>
+        <div id="english_question"></div>
+        <div id="question_cn"></div>
+        <div id="options"></div>
+        <div id="control-buttons">
+            <button onclick="previousQuestion()">Previous</button>
+            <button onclick="nextQuestion()">Next</button>
+            <button onclick="restartQuiz()">Restart</button>
+        </div>
+        <div id="result"></div>
+    </div>
+            
+    <script src="quiz.js"></script>
+
+    <script>
+        // Function to toggle English translations
+        function toggleEnglishTranslations() {
+            var toggleEnglishCheckbox = document.getElementById('toggleEnglish');
+            englishTranslationsChecked = !englishTranslationsChecked; // Toggle checkbox state
+
+            // Call the displayQuestion() function to update the display based on the checkbox state
+            displayQuestion(document.getElementById('toggleChinese').checked, toggleEnglishCheckbox.checked, document.getElementById('toggleRoman').checked);
+        }
+
+        // Function to toggle Chinese translations
+        function toggleChineseTranslations() {
+            var toggleChineseCheckbox = document.getElementById('toggleChinese');
+            chineseTranslationsChecked = !chineseTranslationsChecked; // Toggle checkbox state
+
+            // Call the displayQuestion() function to update the display based on the checkbox state
+            displayQuestion(toggleChineseCheckbox.checked, document.getElementById('toggleEnglish').checked, document.getElementById('toggleRoman').checked);
+        }
+
+        // Function to toggle Roman translations
+        function toggleRomanTranslations() {
+            var toggleRomanCheckbox = document.getElementById('toggleRoman');
+            romanTranslationsChecked = !romanTranslationsChecked; // Toggle checkbox state
+
+            // Call the displayQuestion() function to update the display based on the checkbox state
+            displayQuestion(document.getElementById('toggleChinese').checked, document.getElementById('toggleEnglish').checked, toggleRomanCheckbox.checked);
+        }
+
+        // Function to toggle question shuffling
+        function toggleQuestionShuffle() {
+            var shuffleCheckbox = document.getElementById('shuffleQuestions');
+            shuffleCheckbox.checked = !shuffleCheckbox.checked; // Toggle checkbox state
+
+            // Check if the current question has been answered
+            var currentQuestionAnswered = selectedAnswers[currentQuestionIndex] !== null;
+
+            // If the current question has been answered and shuffling is enabled
+            if (currentQuestionAnswered && shuffleCheckbox.checked) {
+                // Move to the next question automatically
+                nextQuestion();
+            }
+
+            // Call the shuffleQuestions() function to update the questions based on the checkbox state
+            shuffleQuestions(shuffleCheckbox.checked);
+        }
+    </script>
+
+</body>
+</html>
